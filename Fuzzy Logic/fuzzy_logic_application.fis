@@ -1,0 +1,55 @@
+[System]
+Name='assignment1'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='plot_complexity'
+Range=[0 10]
+NumMFs=3
+MF1='low':'gaussmf',[1.769 -1.388e-16]
+MF2='moderate':'gaussmf',[1.769 5]
+MF3='high':'gaussmf',[1.769 10]
+
+[Input2]
+Name='character_development'
+Range=[0 10]
+NumMFs=3
+MF1='weak':'gaussmf',[1.769 -1.388e-16]
+MF2='moderate':'gaussmf',[1.77 5]
+MF3='strong':'gaussmf',[1.771 10]
+
+[Input3]
+Name='writing_style'
+Range=[0 10]
+NumMFs=3
+MF1='basic':'gaussmf',[1.77 -8.327e-17]
+MF2='average':'gaussmf',[1.77 5]
+MF3='exceptional':'gaussmf',[1.771 10]
+
+[Output1]
+Name='rating'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trimf',[0 2 3.33]
+MF2='moderate':'trimf',[3.33 5 6.66]
+MF3='high':'trimf',[6.66 8 10]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+2 2 2, 2 (1) : 1
+3 3 3, 3 (1) : 1
+2 3 3, 3 (1) : 1
+3 2 3, 3 (1) : 1
+1 2 3, 2 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 3, 2 (1) : 1
